@@ -1,0 +1,57 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.resultsTitle {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #333;
+  font-weight: normal;
+}
+
+.resultItem {
+  display: flex;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.productImage {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.productTitle {
+  font-size: 20px;
+  color: #333;
+  font-weight: 400;
+}
+
+.productPrice {
+  font-size: 24px;
+  color: #000;
+  font-weight: bold;
+}
+
+.freeShipping {
+  font-size: 16px;
+  color: #00a650;
+  font-weight: bold;
+}

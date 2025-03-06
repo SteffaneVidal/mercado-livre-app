@@ -1,13 +1,17 @@
 import { useEffect } from "react";
-import SearchBox from "../components/SearchBox";
+import Header from "../components/Header";
+import styles from "../styles/Header.module.scss";
 
 function Home() {
   useEffect(() => {
-    document.title = "Mercado Livre - Busque os Melhores Produtos";
+    document.title = "Mercado Livre - Buscar produtos";
 
     const metaDescription = document.querySelector("meta[name='description']");
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Pesquise e encontre os melhores produtos no Mercado Livre.");
+      metaDescription.setAttribute(
+        "content",
+        "Pesquise e encontre os melhores produtos no Mercado Livre."
+      );
     } else {
       const newMeta = document.createElement("meta");
       newMeta.name = "description";
@@ -17,11 +21,13 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <h1>Busque um produto no Mercado Livre</h1>
-      <SearchBox />
+    <div className="page-background">
+      <div className={styles.home}>
+        <Header />
+      </div>
     </div>
   );
 }
 
 export default Home;
+

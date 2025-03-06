@@ -58,7 +58,7 @@ function Product() {
   }
 
   return (
-    <div>
+    <div className="page-background">
       <h1>{product.title}</h1>
       <img src={product.pictures[0]} alt={product.title} width="300" />
       <p>
