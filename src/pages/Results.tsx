@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import ProductList from "../components/ProductList.tsx";
 
@@ -18,33 +18,34 @@ function Results() {
           .then((data) => {
             setProducts(data.items);
             console.log("Produtos recebidos da API:", data.items);
-
-            
             sessionStorage.setItem(searchQuery, JSON.stringify(data.items));
           })
           .catch((error) => console.error("Erro ao buscar produtos:", error));
       }
 
-        
-    document.title = `Resultados para "${searchQuery}" - Mercado Livre`;
+      document.title = `Resultados para "${searchQuery}" - Mercado Livre`;
 
-   
-    const metaDescription = document.querySelector("meta[name='description']");
-    if (metaDescription) {
-      metaDescription.setAttribute("content", `Veja os melhores produtos para "${searchQuery}" no Mercado Livre.`);
-    } else {
-      const newMeta = document.createElement("meta");
-      newMeta.name = "description";
-      newMeta.content = `Veja os melhores produtos para "${searchQuery}" no Mercado Livre.`;
-      document.head.appendChild(newMeta);
-    }
+      const metaDescription = document.querySelector("meta[name='description']");
+      if (metaDescription) {
+        metaDescription.setAttribute(
+          "content",
+          `Veja os melhores produtos para "${searchQuery}" no Mercado Livre.`
+        );
+      } else {
+        const newMeta = document.createElement("meta");
+        newMeta.name = "description";
+        newMeta.content = `Veja os melhores produtos para "${searchQuery}" no Mercado Livre.`;
+        document.head.appendChild(newMeta);
+      }
     }
   }, [searchQuery]);
+
+  const productsMemo = useMemo(() => products, [JSON.stringify(products)]);
 
   return (
     <div>
       <h1>Resultados para: {searchQuery}</h1>
-      <ProductList products={products} />
+      <ProductList products={productsMemo} />
     </div>
   );
 }

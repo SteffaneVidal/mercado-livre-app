@@ -26,10 +26,14 @@ function ProductImage({ src, alt, width = "100" }: Props) {
     return () => observer.disconnect();
   }, []);
 
+  if (!loaded) {
+    return <div ref={imgRef} style={{ width, height: width, backgroundColor: "#f0f0f0" }} />;
+  }
+
   return (
     <img
       ref={imgRef}
-      src={loaded ? src : ""}
+      src={src}
       alt={alt}
       width={width}
       style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.3s" }}
