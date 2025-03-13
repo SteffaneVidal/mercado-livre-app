@@ -1,0 +1,107 @@
+.productList {
+  list-style: none;
+  padding: 0;
+}
+
+.productList__item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 20px;
+  background:white;
+  
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.productList__image {
+  width: 160px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.productList__info {
+  flex: 1;
+  padding: 20px 30px;
+}
+
+/* Remove o sublinhado e mantém a cor original */
+.productList__imageLink,
+.productList__infoLink {
+  text-decoration: none; /* Remove o sublinhado */
+  color: inherit; /* Mantém a cor original do texto */
+}
+
+/* Remove o contorno (tracejado) quando o link é focado */
+.productList__imageLink:focus,
+.productList__infoLink:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+
+/* Nome do Produto */
+.productList__title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Preços */
+.productList__priceContainer {
+  display: flex;
+  flex-direction: column; /* Mantém o preço original acima */
+  align-items: flex-start;
+  margin-bottom: 5px; /* Espaço abaixo do preço */
+}
+
+.productList__regularPrice {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 2px; /* Espaço abaixo do preço original */
+}
+
+/* Linha com preço atual e desconto */
+.productList__discountRow {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaço entre preço e desconto */
+}
+
+.productList__discountPrice {
+  color: #333;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.productList__discount {
+  color: #008000;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Parcelamento */
+.productList__installments {
+  font-size: 14px;
+  color: #008000;
+  margin-bottom: 20px;
+}
+
+/* Frete Grátis */
+.productList__shipping {
+  font-size: 14px;
+  color: #008000;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Condição do Produto */
+.productList__condition {
+  font-size: 14px;
+  color: #666;
+}

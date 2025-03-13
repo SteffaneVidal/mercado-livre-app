@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Header from "../components/Header";
 import styles from "../styles/Header.module.scss";
 
-function Home() {
+function ProductSearch() {
   useEffect(() => {
     document.title = "Mercado Livre - Buscar produtos";
 
@@ -22,12 +22,12 @@ function Home() {
 
   return (
     <div className="page-background">
-      <div className={styles.home}>
+      <div className={styles.ProductSearch}>
         <Header />
-      </div>
+      </div>EU SOU A TELA DE product search
     </div>
   );
 }
 
-export default Home;
+export default ProductSearch;
 

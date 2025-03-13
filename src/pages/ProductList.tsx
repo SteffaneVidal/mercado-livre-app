@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import ProductList from "../components/ProductList";
 import ContainerContents from "../components/ContainerContents";
 import Header from "../components/Header";
+import Pagination from "../components/Pagination";
 import styles from "../styles/ContainerContents.module.scss";
 
 function Results() {
@@ -11,48 +12,49 @@ function Results() {
   const searchQuery = queryParams.get("search") || "";
 
   const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
 
   useEffect(() => {
-    if (searchQuery && products.length === 0) {
-      console.log("Buscando produtos da API...");
+    if (searchQuery) {
       fetch(`http://localhost:5001/api/items?q=${searchQuery}`)
         .then((response) => response.json())
         .then((data) => {
           setProducts(data.items);
           sessionStorage.setItem(searchQuery, JSON.stringify(data.items));
-          console.log("Produtos recebidos da API:", data.items);
+          console.log("Produtos recebidos:", data.items.length);
         })
         .catch((error) => console.error("Erro ao buscar produtos:", error));
     }
 
     document.title = `Resultados para "${searchQuery}" - Mercado Livre`;
+  }, [searchQuery]);
 
-    const metaDescription = document.querySelector("meta[name='description']");
-    const descriptionContent = `Veja os melhores produtos para "${searchQuery}" no Mercado Livre.`;
+  const currentProducts = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return products.slice(startIndex, startIndex + itemsPerPage);
+  }, [products, currentPage]);
 
-    if (metaDescription) {
-      metaDescription.setAttribute("content", descriptionContent);
-    } else {
-      const newMeta = document.createElement("meta");
-      newMeta.name = "description";
-      newMeta.content = descriptionContent;
-      document.head.appendChild(newMeta);
-    }
-  }, [searchQuery, products.length]);
-
-  const productsMemo = useMemo(() => products, [JSON.stringify(products)]);
+  const totalPages = useMemo(() => {
+    return Math.ceil(products.length / itemsPerPage);
+  }, [products.length, itemsPerPage]);
 
   return (
-    <div className="page-background">
-      <Header />
-      <ContainerContents>
-        <h1 className={styles.resultsTitle}>
-          Resultados para: {searchQuery}
-        </h1>
-        <ProductList products={productsMemo} />
-      </ContainerContents>
-    </div>
-  );
+  <div className="page-background">
+    <Header />EU SOU A TELA DE Resultados da busca ProductList
+    <ContainerContents>
+      <ProductList products={currentProducts} />
+    </ContainerContents>
+    <footer className={styles.paginationContainer}>
+      <Pagination
+        totalPages={totalPages}
+        currentPage={currentPage}
+        onPageChange={setCurrentPage}
+      />
+    </footer>
+  </div>
+);
+
 }
 
 export default Results;

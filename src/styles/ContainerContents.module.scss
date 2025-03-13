@@ -1,11 +1,21 @@
 .container {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px;
+  max-width: 1166px;
+  margin: 50px auto;
   background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  flex: 1; 
+  padding-bottom: 0; 
+}
+
+.resultItem {
+  display: flex;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .resultsTitle {

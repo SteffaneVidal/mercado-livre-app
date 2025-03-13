@@ -4,19 +4,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 2px;
   width: 100%;
   height: 50px;
 
   &__logo {
-    width: 150px;
+    width: 164px;
     height: auto;
   }
 
   &__searchContainer {
     display: flex;
     flex: 1;
-    max-width: 950px;
+    max-width: 1000px;
     height: 35px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.2);
     overflow: hidden;
@@ -51,7 +51,7 @@
   .divider {
     width: 1px;
     height: 60%;
-    background-color: rgba(239, 239, 239, 1); // Cor do divider
+    background-color: rgba(239, 239, 239, 1);
     position: absolute;
     left: 0;
   }
