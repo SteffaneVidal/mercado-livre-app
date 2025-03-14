@@ -24,7 +24,7 @@ function ProductSearch() {
     <div className="page-background">
       <div className={styles.ProductSearch}>
         <Header />
-      </div>EU SOU A TELA DE product search
+      </div>
     </div>
   );
 }

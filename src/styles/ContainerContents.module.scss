@@ -1,10 +1,11 @@
 .container {
   width: 100%;
   max-width: 1166px;
-  margin: 50px auto;
+  margin: auto;
+  margin-bottom: 50px;
   background-color: #fff;
   flex: 1; 
-  padding-bottom: 0; 
+  padding-bottom: 0;
 }
 
 .resultItem {

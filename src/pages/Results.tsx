@@ -9,11 +9,17 @@ import styles from "../styles/ContainerContents.module.scss";
 function Results() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const searchQuery = queryParams.get("search") || "";
+  const searchQuery = queryParams.get("search") || sessionStorage.getItem("lastSearch") || "";
 
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
+
+  useEffect(() => {
+    if (searchQuery) {
+      sessionStorage.setItem("lastSearch", searchQuery);
+    }
+  }, [searchQuery]);
 
   useEffect(() => {
     if (searchQuery) {
@@ -41,7 +47,7 @@ function Results() {
 
   return (
   <div className="page-background">
-    <Header />EU SOU A TELA DE Resultados da busca ProductList
+    <Header />
     <ContainerContents>
       <ProductList products={currentProducts} />
     </ContainerContents>

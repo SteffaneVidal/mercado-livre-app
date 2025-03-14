@@ -1,11 +1,11 @@
 .paginationContainer {
-  width: 100vw; /* Ocupar toda a largura */
-  background-color: #e6e6e6; /* Fundo cinza */
-  padding: 20px 0; /* Espaçamento interno */
+  width: 100vw;
+  background-color: #e6e6e6;
+  padding: 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: auto; /* Empurra o footer para baixo */
+  margin-top: auto;
   position: fixed;
   bottom: 0;
   left: 0;

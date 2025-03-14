@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProductSearch from "./pages/ProductSearch";
-import Results from "./pages/ProductList";
-import Product from "./pages/ProductDetail";
+import ProductDetails from "./pages/ProductDetail";
+import Results from "./pages/Results";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ProductSearch />} />
         <Route path="/items" element={<Results />} />
-        <Route path="/items/:id" element={<Product />} />
+        <Route path="/items/:id" element={<ProductDetails />} />
       </Routes>
     </Router>
   );
