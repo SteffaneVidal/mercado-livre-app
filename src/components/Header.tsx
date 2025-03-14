@@ -16,11 +16,11 @@ function Header() {
 
   return (
     <header className={styles.header}>
-      <img src={logo} alt="Mercado Livre" className={styles.header__logo} />
+      <img src={logo} alt="Mercado libre" className={styles.header__logo} />
       <div className={styles.header__searchContainer}>
         <input
           type="text"
-          placeholder="Buscar produtos, marcas e mais..."
+          placeholder="Busca productos, marcas y más..."
           className={styles.header__searchInput}
           value={query}
           onChange={(e) => setQuery(e.target.value)}

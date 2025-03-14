@@ -41,7 +41,7 @@ const Pagination = ({ totalPages, currentPage, onPageChange }: PaginationProps) 
           className={styles.pagination__button}
           onClick={() => onPageChange(currentPage + 1)}
         >
-          Próximo &gt;
+          Siguiente &gt;
         </button>
       )}
     </div>

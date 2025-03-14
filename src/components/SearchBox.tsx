@@ -16,7 +16,7 @@ function SearchBox() {
     <form onSubmit={handleSearch}>
       <input
         type="text"
-        placeholder="Buscar produtos..."
+        placeholder="Búsqueda de productos, marcas y maíz..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />

@@ -45,7 +45,6 @@ function ProductList({ products }: Props) {
 
         return (
           <li key={product.id} className={styles.productList__item}>
-            {/* Link envolta da imagem */}
             <Link to={`/items/${product.id}`} className={styles.productList__imageLink}>
               <img
                 src={product.picture}
@@ -54,13 +53,11 @@ function ProductList({ products }: Props) {
               />
             </Link>
 
-            {/* Link envolta do conteúdo */}
             <Link to={`/items/${product.id}`} className={styles.productList__infoLink}>
               <div className={styles.productList__info}>
                 <h2 className={styles.productList__title}>{product.title}</h2>
 
                 <div className={styles.productList__priceContainer}>
-                  {/* Regular Price (aparece somente se for maior que o preço atual) */}
                   {product.price.regular_amount &&
                     product.price.amount < product.price.regular_amount && (
                       <span className={styles.productList__regularPrice}>
@@ -68,7 +65,6 @@ function ProductList({ products }: Props) {
                       </span>
                     )}
 
-                  {/* Preço e Desconto na mesma linha */}
                   <div className={styles.productList__discountRow}>
                     <span className={styles.productList__discountPrice}>
                       {formatPrice(product.price.amount)}
@@ -79,7 +75,6 @@ function ProductList({ products }: Props) {
                   </div>
                 </div>
 
-                {/* Parcelamento formatado corretamente */}
                 {product.installments && (
                   <p className={styles.productList__installments}>
                     {product.installments.replace(
@@ -91,7 +86,7 @@ function ProductList({ products }: Props) {
                 )}
 
                 {product.free_shipping && (
-                  <span className={styles.productList__shipping}>Envio grátis</span>
+                  <span className={styles.productList__shipping}>Envío gratis</span>
                 )}
 
                 {product.condition !== "new" && (
